@@ -9,14 +9,16 @@ function MyApp() {
         </div>
     )
 }
-const anotheruser="chai or me"
+const anotheruser = "chai or me"
+
 const reactElement = React.createElement(
     'a',
     //attributes
     { href: 'https://google.com', target: '_blank' },
     'click me to visit google',
-    anotheruser
+    
 )
+
 ReactDOM.createRoot(document.getElementById('root')).render(
 
   reactElement
