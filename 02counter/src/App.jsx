@@ -7,8 +7,6 @@ function App() {
 
   let [counter,setCounter]=useState(5)
 
-
-  //let counter = 5;
   const addValue = () => {
     if (counter >= 20)
       setCounter(20)
@@ -23,6 +21,7 @@ function App() {
       setCounter(0);
     else
     setCounter(counter - 1);
+    
 
   }
   return (
