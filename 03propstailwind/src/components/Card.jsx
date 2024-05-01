@@ -1,5 +1,6 @@
 import React from 'react'
 
+//username and btnText are props and for btnText the default value is "visit me"(in case the user doesnt pass any data)
 const Card = ({username,btnText="visit me"}) => {
   console.log(username)
   return (
