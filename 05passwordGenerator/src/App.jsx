@@ -32,8 +32,12 @@ function App() {
     passwordRef.current?.setSelectionRange(0,100)
     window.navigator.clipboard.writeText(password)
     
-  },[password])
-   useEffect(()=>{passwordGenerator()},[length,numberAllowed,charAllowed,passwordGenerator])
+  }, [password])
+  
+  useEffect(() => { passwordGenerator() }, [length, numberAllowed, charAllowed, passwordGenerator])
+  
+
+  
   return (
     <>
       <div className='w-full max-w-md mx-auto shadow-md rounded-lg py-3 px-4 my-8 text-orange-500 bg-gray-800'>
