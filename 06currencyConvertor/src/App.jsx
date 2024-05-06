@@ -28,20 +28,25 @@ function App() {
  
   return (
     <div
-        className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
-        style={{
-            backgroundImage: `url('https://images.pexels.com/photos/22858523/pexels-photo-22858523/free-photo-of-s-curve-chicago.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')`,
-        }}
+        className="w-full h-screen flex "
+       
     >
-        <div className="w-full">
-            <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
+      <div
+        className="w-1/2 h-full bg-cover bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://images.pexels.com/photos/7014337/pexels-photo-7014337.jpeg?auto=compress&cs=tinysrgb&w=600')`
+      }} >
+
+      </div>
+        <div className="w-1/2 h-full flex justify-center items-center bg-pink-100">
+            <div className="w-full max-w-md h-2/3 border border-gray-500 rounded-lg p-12 backdrop-blur-md bg-black/30 flex justify-center items-center">
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
                        convert()
                     }}
                 >
-                    <div className="w-full mb-1">
+                    <div className="w-full mt-1.5 mb-1">
                         <InputBox
                 label="From"
                 amount={amount}
@@ -66,7 +71,7 @@ function App() {
                             amount={convertedAmount}
                             currencyOption={options}
                             onCurrencyChange={(currency)=>setTo(currency)}
-                selectCurrency={from}
+                selectCurrency={to}
                 amountDisable
                         />
                     </div>
