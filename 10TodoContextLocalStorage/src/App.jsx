@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import './App.css'
 import { TodoProvider } from './context';
+import { TodoForm } from './components';
 
 function App() {
   
@@ -19,6 +20,24 @@ function App() {
   const togglComplete = (id) => {
     setTodos((prev)=>prev.map((prevTodo)=>prevTodo===id?{...prevTodo,completed:!prevTodo.completed}:prevTodo))
   }
+
+
+//getting already stored items from local storage and putting them aagain in todos even when app restartss
+useEffect(() => {
+  const todos = JSON.parse(localStorage.getItem("todos"))
+
+  if (todos && todos.length > 0)
+  {
+    setTodos(todos)
+    }
+  
+}, [])
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }, [todos])
+  
+
   return (
     <TodoProvider value={{ todos, addTodo, updateTodo, deleteTodo, togglComplete}}>
     <div className="bg-[#172842] min-h-screen py-8">
@@ -26,6 +45,7 @@ function App() {
         <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
         <div className="mb-4">
             {/* Todo form goes here */} 
+            <TodoForm/>
         </div>
         <div className="flex flex-wrap gap-y-3">
             {/*Loop and Add TodoItem here */}
